@@ -3,8 +3,8 @@
 #SBATCH -A s0818
 #SBATCH --export=NONE
 #
-#PBS -N runAr_30
-#PBS -o runAr_30.log.o%j
+#PBS -N run
+#PBS -o run.log.o%j
 #SBATCH --ntasks=28
 #SBATCH --ntasks-per-node=28
 #SBATCH --constraint=hasw
@@ -26,4 +26,4 @@
 # ------------------------------
 source  /home/bkarpowi/bin/go3.csh
 which python3 
-./wrfSim_flat_B2B3.py --in $PWD/3km_full_hour_split/wrfout_d01_2019-02-13_00_30_00_section_01 --output-dir $PWD --nthreads 28 --idx 0
+./wrfSim_flat_B2B3.py --in $PWD/3km_full_hour_split/wrfout_d01_2019-02-13_00_00_00_section_01 --output-dir $PWD --nthreads 28 --idx 0
