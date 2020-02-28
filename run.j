@@ -10,8 +10,8 @@
 #SBATCH --constraint=hasw
 ##SBATCH --qos=debug
 ##PBS -l walltime=1:00:00
-#SBATCH --partition=preops
-#SBATCH --qos=dastest
+##SBATCH --partition=preops
+##SBATCH --qos=dastest
 ##SBATCH --qos=obsdev
 ##SBATCH --qos=debug
 #PBS -l walltime=9:00:00
