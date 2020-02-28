@@ -295,29 +295,13 @@ if __name__ == "__main__":
  
     ncOut.createDimension('nchannels', len(Wn) )
     outTb = ncOut.createVariable('Tb',np.float32,('Time','south_north', 'west_east','nchannels') ) 
-    #lowFrac = ncOut.createVariable('cloudFracLow',np.float32,('Time','south_north','west_east') )
-    #midFrac = ncOut.createVariable('cloudFracMid',np.float32,('Time','south_north','west_east') )
-    #highFrac = ncOut.createVariable('cloudFracHigh',np.float32,('Time','south_north','west_east') )
     wavenumbersOut = ncOut.createVariable('wavenumbers',np.float32,('nchannels'))
     Tb1 = Tb1[:,:].reshape([SN,WE,len(Wn1)])
     Tb2 = Tb2[:,:].reshape([SN,WE,len(Wn2)])
     outTb[0,:,:,0:len(Wn1)] = Tb1[:,:,:]
     outTb[0,:,:,len(Wn1):len(Wn1)+len(Wn2)] = Tb2[:,:,:]
-    """
-    for i in range(len(Wn1)):
-        outTb[:,:,:,i] = Tb1[:,i].reshape([SN,WE])
-        ncOut.sync()
-    offset = len(Wn1)
-    Tb1 = []
-    gc.collect()
-    for i in range(len(Wn2)):
-        outTb[:,:,:,offset+i] = Tb2[:,i].reshape([SN,WE])
-        ncOut.sync()
-    Tb2 = []
-    """
     gc.collect()
 
     print("Writing Ancillary Data.")
     wavenumbersOut[:] = Wn
-    #lowFrac[:,:,:], midFrac[:,:,:], highFrac[:,:,:] = getvar(ncIn,'cloudfrac',timeidx=a.idx)
     print("Done!")
