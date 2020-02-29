@@ -17,8 +17,12 @@ Along with a link to rttov, to get its hdf5 profiles where I take ozone to fill 
 The scripts in this directory (in the order which I would run for large WRF domains):
 
 wrfSplit.py --> use this to split a wrf run at a single time step into spatial chunks in the North-South direction.
+
 wrfSim_flat_B2B3.py  --> this script runs CRTM over a given time step, follow help args (or see the run.j for an example).
+
 catBt.py  --> assembles the output of serveral wrfSim_flat_B2B3.py runs (basically cats together runs when using wrfSplit as a fisrt step for large WRF domains).
+
 plot.py  --> plots the output from wrfSim_flat_B2B3.py or catBt.py
+
 run.j --> example slurm job to run on discover. Obviously, I'm selfish and have things hard coded like groups I'm a member of...etc.
  
