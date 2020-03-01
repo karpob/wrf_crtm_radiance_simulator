@@ -251,6 +251,7 @@ if __name__ == "__main__":
 
     crtmOb = pyCRTM()
     crtmOb.StoreTrans = False
+    crtmOb.StoreEmis = False
     crtmOb.coefficientPath = coefficientPathCrtm 
     crtmOb.sensor_id = 'iasiB2_metop-a'
     crtmOb.loadInst()
@@ -270,6 +271,7 @@ if __name__ == "__main__":
     Tb1 = Tb1[:,idx]
     Wn1 = Wn1[idx]
     crtmOb2 = pyCRTM()
+    crtmOb2.StoreTrans = False
     crtmOb2.StoreTrans = False
     crtmOb2.coefficientPath = coefficientPathCrtm 
     crtmOb2.sensor_id = 'iasiB3_metop-a' 
